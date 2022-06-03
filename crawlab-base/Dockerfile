@@ -25,8 +25,8 @@ RUN wget https://github.com/crawlab-team/resources/raw/main/seaweedfs/2.79/linux
   && cp weed /usr/local/bin
 
 # install backend
-COPY ./requirements.txt /app
-RUN pip install -r /app/requirements.txt
+COPY ./requirements.txt .
+RUN pip install -r requirements.txt
 
 # working directory
 WORKDIR /app/backend
