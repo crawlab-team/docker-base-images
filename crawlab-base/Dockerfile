@@ -5,7 +5,7 @@ FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND noninteractive
 
 # copy install scripts
-COPY ./install /app
+COPY ./install /app/install
 
 # copy requirements.txt
 COPY ./requirements.txt /app
