@@ -1,6 +1,6 @@
 scrapy==2.6.1
 pymongo==4.1.1
 bs4==0.0.1
-requests==2.27.1
+requests==2.22.0
 crawlab-sdk==0.6.0
 selenium==4.2.0
