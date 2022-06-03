@@ -7,9 +7,6 @@ ENV DEBIAN_FRONTEND noninteractive
 # copy install scripts
 COPY ./install /app/install
 
-# copy requirements.txt
-COPY ./requirements.txt /app
-
 # install deps
 RUN sh /app/install/deps.sh
 
