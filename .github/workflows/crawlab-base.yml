@@ -37,7 +37,9 @@ jobs:
 
       - name: Build image
         if: ${{ env.is_matched == '1' }}
-        run: docker build . --file crawlab-base/Dockerfile --tag image
+        run: |
+          cd $IMAGE_PATH
+          docker build . --file Dockerfile --tag image
 
       - name: Log into registry
         if: ${{ env.is_matched == '1' }}
