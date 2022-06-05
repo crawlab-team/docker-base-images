@@ -20,7 +20,7 @@ RUN sh /app/install/golang.sh
 RUN sh /app/install/seaweedfs.sh
 
 # install chromium
-RUN sh /app/install/chromium.sh
+RUN bash /app/install/chromium.sh
 
 # install chromedriver
 RUN sh /app/install/chromedriver.sh
