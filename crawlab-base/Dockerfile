@@ -19,6 +19,9 @@ RUN sh /app/install/golang.sh
 # install seaweedfs
 RUN sh /app/install/seaweedfs.sh
 
+# install chromium
+RUN sh /app/install/chromium.sh
+
 # install chromedriver
 RUN sh /app/install/chromedriver.sh
 
