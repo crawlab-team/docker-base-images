@@ -11,7 +11,7 @@ apt-get -y install google-chrome-stable
 echo `google-chrome --version`
 
 # chromedriver
-wget https://chromedriver.storage.googleapis.com/94.0.4606.61/chromedriver_linux64.zip
+wget https://chromedriver.storage.googleapis.com/102.0.5005.61/chromedriver_linux64.zip
 unzip chromedriver_linux64.zip
 mv chromedriver /usr/local/bin/chromedriver
 chown root:root /usr/local/bin/chromedriver
