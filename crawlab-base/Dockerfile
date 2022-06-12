@@ -22,6 +22,9 @@ RUN sh /app/install/seaweedfs.sh
 # install chromedriver
 RUN sh /app/install/chromedriver.sh
 
+# install rod
+RUN sh /app/install/rod.sh
+
 # working directory
 WORKDIR /app/backend
 
