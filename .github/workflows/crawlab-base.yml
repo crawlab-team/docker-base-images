@@ -37,17 +37,17 @@ jobs:
           done
 
       - name: Build image
-        if: ${{ env.is_matched == '1' }}
+        if: ${{ github.event_name == 'workflow_dispatch' || env.is_matched == '1' }}
         run: |
           cd $IMAGE_PATH
           docker build . --file Dockerfile --tag image
 
       - name: Log into registry
-        if: ${{ env.is_matched == '1' }}
+        if: ${{ github.event_name == 'workflow_dispatch' || env.is_matched == '1' }}
         run: echo ${{ secrets.DOCKER_PASSWORD}} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
       - name: Push image
-        if: ${{ env.is_matched == '1' }}
+        if: ${{ github.event_name == 'workflow_dispatch' || env.is_matched == '1' }}
         run: |
           IMAGE_ID=$IMAGE_NAME
           
