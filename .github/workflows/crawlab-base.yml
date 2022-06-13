@@ -31,7 +31,7 @@ jobs:
         run: |
           # check changed files
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            if [[ $file =~ crawlab-base.yml ]]; then
+            if [[ $file =~ ^\.github/workflows/.* ]]; then
               echo "file ${file} is matched"
               is_matched_files=1
               break
@@ -50,7 +50,7 @@ jobs:
           
           # final
           if [[ $is_matched_files == '1' || $is_matched_events == '1' ]]; then
-            echo "is_matched_events=1" >> $GITHUB_ENV
+            echo "is_matched=1" >> $GITHUB_ENV
           fi
 
       - name: Build image
