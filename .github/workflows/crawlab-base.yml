@@ -29,6 +29,11 @@ jobs:
       - name: Check changed files
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            if [[ $file =~ crawlab-base.yml ]]; then
+              echo "file ${file} is matched"
+              echo "is_matched=1" >> $GITHUB_ENV
+              break
+            fi
             if [[ $file =~ ^${IMAGE_PATH}/.* ]]; then
               echo "file ${file} is matched"
               echo "is_matched=1" >> $GITHUB_ENV
