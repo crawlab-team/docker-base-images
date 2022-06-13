@@ -9,6 +9,12 @@ on:
     types: [ published ]
   workflow_dispatch:
   workflow_call:
+    inputs:
+      forceTrigger:
+        description: Whether to force trigger the workflow
+        type: boolean
+        default: false
+        required: false
 
 env:
   IMAGE_PATH: crawlab-base
@@ -32,24 +38,20 @@ jobs:
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             if [[ $file =~ ^\.github/workflows/.* ]]; then
               echo "file ${file} is matched"
-              is_matched_files=1
-              break
+              echo "is_matched=1" >> $GITHUB_ENV
+              exit 0
             fi
             if [[ $file =~ ^${IMAGE_PATH}/.* ]]; then
               echo "file ${file} is matched"
-              is_matched_files=1
-              break
+              echo "is_matched=1" >> $GITHUB_ENV
+              exit 0
             fi
           done
           
-          # check events
-          if [[ ${{ github.event_name }} == 'workflow_dispatch' || ${{ github.event_name }} == 'workflow_call' ]]; then
-            is_matched_events=1
-          fi
-          
-          # final
-          if [[ $is_matched_files == '1' || $is_matched_events == '1' ]]; then
-            echo "is_matched=1" >> $GITHUB_ENV
+          # force trigger
+          if [[ ${{ inputs.forceTrigger }} == true ]]; then
+              echo "is_matched=1" >> $GITHUB_ENV
+              exit 0
           fi
 
       - name: Build image
