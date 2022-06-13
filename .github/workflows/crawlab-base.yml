@@ -8,13 +8,6 @@ on:
   release:
     types: [ published ]
   workflow_dispatch:
-  workflow_call:
-    inputs:
-      forceTrigger:
-        description: Whether to force trigger the workflow
-        type: boolean
-        default: false
-        required: false
 
 env:
   IMAGE_PATH: crawlab-base
