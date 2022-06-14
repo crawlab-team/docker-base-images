@@ -38,6 +38,9 @@ ENV LANG C.UTF-8
 # docker
 ENV CRAWLAB_DOCKER Y
 
+# goproxy
+ENV GOPROXY goproxy.io,direct
+
 # frontend port
 EXPOSE 8080
 
