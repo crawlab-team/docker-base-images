@@ -8,6 +8,8 @@ on:
   release:
     types: [ published ]
   workflow_dispatch:
+  repository_dispatch:
+    types: [ crawlab-base ]
 
 env:
   IMAGE_PATH: crawlab-base
@@ -81,3 +83,11 @@ jobs:
             docker tag image $IMAGE_ID:main
             docker push $IMAGE_ID:main
           fi
+
+      - name: Trigger other workflows
+        if: ${{ env.is_matched == '1' }}
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.WORKFLOW_ACCESS_TOKEN }}
+          repository: crawlab-team/crawlab
+          event-type: docker-crawlab
