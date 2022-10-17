@@ -6,4 +6,4 @@ apt-get install -y python3 python3-pip \
 	&& ln -s /usr/bin/python3 /usr/local/bin/python
 
 # install python dependencies
-pip install -r /app/install/requirements.txt
+pip install -r /app/install/python/requirements.txt

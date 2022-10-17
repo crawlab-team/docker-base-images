@@ -8,25 +8,28 @@ ENV DEBIAN_FRONTEND noninteractive
 COPY ./install /app/install
 
 # install deps
-RUN sh /app/install/deps.sh
+RUN sh /app/install/deps/deps.sh
 
 # install python
-RUN sh /app/install/python.sh
+RUN sh /app/install/python/python.sh
 
 # install golang
-RUN sh /app/install/golang.sh
+RUN sh /app/install/golang/golang.sh
 
 # install seaweedfs
-RUN sh /app/install/seaweedfs.sh
+RUN sh /app/install/seaweedfs/seaweedfs.sh
 
 # install chromedriver
-RUN sh /app/install/chromedriver.sh
+RUN sh /app/install/chromedriver/chromedriver.sh
 
 # install rod
-RUN sh /app/install/rod.sh
+RUN sh /app/install/rod/rod.sh
 
 # working directory
 WORKDIR /app/backend
+
+# node path
+ENV NODE_PATH /usr/local/lib/node_modules
 
 # timezone environment
 ENV TZ Asia/Shanghai
