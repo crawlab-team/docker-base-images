@@ -16,6 +16,9 @@ RUN sh /app/install/python/python.sh
 # install golang
 RUN sh /app/install/golang/golang.sh
 
+# install node
+RUN sh /app/install/node/node.sh
+
 # install seaweedfs
 RUN sh /app/install/seaweedfs/seaweedfs.sh
 
