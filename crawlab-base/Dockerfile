@@ -32,7 +32,7 @@ RUN sh /app/install/rod/rod.sh
 WORKDIR /app/backend
 
 # node path
-ENV NODE_PATH /usr/local/lib/node_modules
+ENV NODE_PATH /usr/lib/node_modules
 
 # timezone environment
 ENV TZ Asia/Shanghai
