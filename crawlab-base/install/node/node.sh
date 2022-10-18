@@ -8,8 +8,7 @@ curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh \
 # install node dependencies
 npm install -g \
   yarn \
-  pnpm
-pnpm install -g \
+  pnpm \
   crawlab-sdk@latest \
   puppeteer \
   playwright \
