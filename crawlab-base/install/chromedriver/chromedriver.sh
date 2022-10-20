@@ -1,17 +1,20 @@
 #!/bin/sh
 
+# version
+version="106.0.5249.61"
+
 # deps
 apt-get install -y unzip xvfb libxi6 libgconf-2-4
 
 # chrome
-curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
-bash -c "echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' >> /etc/apt/sources.list.d/google-chrome.list"
-apt-get update
-apt-get -y install google-chrome-stable
+wget -q "http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${version}-1_amd64.deb"
+apt-get -y install "./google-chrome-stable_${version}-1_amd64.deb"
 echo `google-chrome --version`
+rm -f "./google-chrome-stable_${version}-1_amd64.deb"
+
 
 # chromedriver
-wget https://chromedriver.storage.googleapis.com/102.0.5005.61/chromedriver_linux64.zip
+wget "https://chromedriver.storage.googleapis.com/${version}/chromedriver_linux64.zip"
 unzip chromedriver_linux64.zip
 mv chromedriver /usr/local/bin/chromedriver
 chown root:root /usr/local/bin/chromedriver
