@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # ensure directory mode of /tmp
 chmod 777 /tmp

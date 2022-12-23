@@ -8,25 +8,25 @@ ENV DEBIAN_FRONTEND noninteractive
 COPY ./install /app/install
 
 # install deps
-RUN sh /app/install/deps/deps.sh
+RUN bash /app/install/deps/deps.sh
 
 # install python
-RUN sh /app/install/python/python.sh
+RUN bash /app/install/python/python.sh
 
 # install golang
-RUN sh /app/install/golang/golang.sh
+RUN bash /app/install/golang/golang.sh
 
 # install node
-RUN sh /app/install/node/node.sh
+RUN bash /app/install/node/node.sh
 
 # install seaweedfs
-RUN sh /app/install/seaweedfs/seaweedfs.sh
+RUN bash /app/install/seaweedfs/seaweedfs.sh
 
 # install chromedriver
-RUN sh /app/install/chromedriver/chromedriver.sh
+RUN bash /app/install/chromedriver/chromedriver.sh
 
 # install rod
-RUN sh /app/install/rod/rod.sh
+RUN bash /app/install/rod/rod.sh
 
 # working directory
 WORKDIR /app/backend

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # version
 version="106.0.5249.61"
