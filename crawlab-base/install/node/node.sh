@@ -12,4 +12,5 @@ npm install -g \
   crawlab-sdk@latest \
   puppeteer \
   playwright \
-  playwright-chromium
+  playwright-chromium \
+  crawlee
