@@ -1,8 +1,8 @@
-scrapy==2.6.1
-pymongo==4.1.1
-bs4==0.0.1
+scrapy
+pymongo
+bs4
 crawlab-sdk>=0.6.0
 crawlab-demo<=0.1.0
-selenium==4.2.0
-pyopenssl==22.0.0
-playwright==1.27.1
+selenium
+pyopenssl
+playwright
