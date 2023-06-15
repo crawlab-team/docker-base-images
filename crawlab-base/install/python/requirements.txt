@@ -1,4 +1,4 @@
-scrapy
+scrapy>=2.9.0
 pymongo
 bs4
 crawlab-sdk>=0.6.0
