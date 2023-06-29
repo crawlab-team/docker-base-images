@@ -6,3 +6,4 @@ crawlab-demo<=0.1.0
 selenium
 pyopenssl
 playwright
+feapder
