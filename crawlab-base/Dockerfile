@@ -19,6 +19,9 @@ RUN bash /app/install/golang/golang.sh
 # install node
 RUN bash /app/install/node/node.sh
 
+# install java
+RUN bash /app/install/java/java.sh
+
 # install seaweedfs
 RUN bash /app/install/seaweedfs/seaweedfs.sh
 
