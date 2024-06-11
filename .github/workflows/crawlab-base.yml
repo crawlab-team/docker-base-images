@@ -27,40 +27,15 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v18.7
 
-      - name: Check matched
-        run: |
-          # check changed files
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            if [[ $file =~ ^\.github/workflows/.* ]]; then
-              echo "file ${file} is matched"
-              echo "is_matched=1" >> $GITHUB_ENV
-              exit 0
-            fi
-            if [[ $file =~ ^${IMAGE_PATH}/.* ]]; then
-              echo "file ${file} is matched"
-              echo "is_matched=1" >> $GITHUB_ENV
-              exit 0
-            fi
-          done
-          
-          # force trigger
-          if [[ ${{ inputs.forceTrigger }} == true ]]; then
-              echo "is_matched=1" >> $GITHUB_ENV
-              exit 0
-          fi
-
       - name: Build image
-        if: ${{ env.is_matched == '1' }}
         run: |
           cd $IMAGE_PATH
           docker build . --file Dockerfile --tag image
 
       - name: Log into registry
-        if: ${{ env.is_matched == '1' }}
         run: echo ${{ secrets.DOCKER_PASSWORD}} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
       - name: Push image
-        if: ${{ env.is_matched == '1' }}
         run: |
           IMAGE_ID=$IMAGE_NAME
           
@@ -85,7 +60,6 @@ jobs:
           fi
 
       - name: Trigger other workflows
-        if: ${{ env.is_matched == '1' }}
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.WORKFLOW_ACCESS_TOKEN }}
